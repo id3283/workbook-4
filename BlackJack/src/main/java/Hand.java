@@ -7,9 +7,6 @@ public class Hand {
         cards = new ArrayList<Card>();
      }
 
-    public int getPointValue() {
-        return 0;
-    }
 
     // A Card is dealt to the Hand and the Hand is responsible
 // to store the card
