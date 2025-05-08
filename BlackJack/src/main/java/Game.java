@@ -13,7 +13,6 @@ public class Game {
 
         for(String name: names) {
             Hand hand = new Hand();
-
             for (int i = 0; i < 2; i++) {
                 Card currentCard = deck.deal();
                 hand.deal(currentCard);
@@ -21,27 +20,29 @@ public class Game {
             Playa playa = new Playa(hand, name);
             table.add(playa);
         }
-
         Playa winner = null;
+
         for(Playa playa: table) {
-            int value = playa.getValue();
-            if(playa.getValue() <= 21) {
-                if(winner == null) {
+            System.out.println("Player : " + playa.getName() + " has " + playa.getValue() );
+            if (playa.getValue() > 21) {
+                continue;
+            }
+            if(winner == null) {
+                winner = playa;
+            }
+            else {
+                if(playa.getValue() > winner.getValue()) {
                     winner = playa;
-                }
-                else {
-                    if(playa.getValue() > winner.getValue()) {
-                        winner = playa;
-                    }
                 }
             }
         }
 
+        System.out.println("\n\n");
         if (winner == null) {
             System.out.println("What!?!  Everyone busted!");
         }
         else {
-            System.out.println("The winner: " + winner.getName() + " with " + winner.getValue());
+            System.out.println("The winner: " + winner.getName() + " with " + winner.getValue() + "🎉");
         }
 
     }
