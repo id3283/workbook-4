@@ -7,7 +7,7 @@ public class Employee {
         return hoursWorked;
     }
 
-    void punchIn(double time) {
+    void punchIn(@SuppressWarnings("SameParameterValue") double time) {
         this.startTime = time;
     }
 
